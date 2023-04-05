@@ -12,7 +12,6 @@ const App = () => {
     try {
       const response = await fetch("images?limit=10");
       const data = await response.json();
-      console.log("Success:", data);
       setImages(data);
     } catch (error) {
       console.error("Error:", error);
