@@ -1,0 +1,269 @@
+/* General styles */
+*,
+html,
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* App */
+.app {
+  padding: 5px 80px;
+}
+
+/* Navbar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.nav button {
+  background: black;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+  overflow: hidden;
+  z-index: 50;
+}
+
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding-bottom: 5px;
+  width: 55px;
+  border-radius: 30px;
+  border: none;
+  background-color: white;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Grid Item */
+.grid-item {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  height: 350px;
+  border-radius: 20px;
+}
+
+.image-before {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .image-after {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+
+.grid-item picture .image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.3s;
+}
+
+.grid-item:hover .image {
+  transform: scale(1.1);
+}
+
+/* Listing */
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  z-index: 40;
+  gap: 10px;
+  padding: 0 10px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.profile-wrapper p {
+  font-weight: 600;
+}
+
+.profile-wrapper .small {
+  border-radius: 30px;
+  max-width: 35px;
+}
+
+/* Form */
+form {
+  padding: 20px;
+  width: 33vw;
+  max-width: 100%;
+  padding-top: 100px;
+}
+
+.form-input input {
+  display: block;
+  padding: 15px 10px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #eaeaea;
+  margin-right: inherit;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  border: none;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.form-input .form-error {
+  color: red;
+}
+
+form button {
+  background: black;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Slider */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  border-radius: 100px;
+  background: #eaeaea;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  background: black;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  background: black;
+  cursor: pointer;
+}
+
+/* Color Input */
+form input[type="color"] {
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+/* Header */
+.header {
+  padding-bottom: 50px;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .app {
+    padding: 10px;
+  }
+
+  form {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .app {
+    padding: 5px;
+  }
+
+  form {
+    width: 70vw;
+  }
+}
+
+.lazyload-wrapper {
+  display: flex;
+}

@@ -1,33 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Listing, Header, Form } from "./components";
+import { ModalProvider, useModal } from "./ModalContext";
 
 const App = () => {
   const [images, setImages] = useState();
+  const { openModal } = useModal();
+
+  const fetchImages = async () => {
+    const start = performance.now();
+    try {
+      const response = await fetch("images?limit=10");
+      const data = await response.json();
+      console.log("Success:", data);
+      setImages(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    const end = performance.now();
+
+    // Testing load times
+    console.log("Time taken to fetch image", end - start);
+  };
 
   useEffect(() => {
-    fetch('images?limit=10')
-      .then(res => res.json())
-      .then(data => {
-        console.log('Success:', data);
-        setImages(data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+    fetchImages();
   }, []);
 
   return (
-    <div className='app'>
-      {
-        images && images.map(img => (
-          <div key={img.id} >
-            <img src={`${img.url}.jpg`} alt=''/>
-            <img src={`${img.user.profile_image}.webp`} alt=''/>
-          </div>
-        ))
-      }
+    <div className="app">
+      <Header openForm={() => {openModal(<Form />)}} />
+      <div className="grid-container">
+        {images &&
+          images.map((img) => (
+            <Listing key={img.id} img={img} />
+          ))}
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+const AppWithContext = () => (
+  <ModalProvider>
+    <App />
+  </ModalProvider>
+);
+
+export default AppWithContext;
