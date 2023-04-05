@@ -18,6 +18,16 @@ const Form = () => {
     setForm({ ...form, [name]: value });
   };
 
+  const clearForm = () => {
+    setForm({
+      name: "",
+      email: "",
+      dob: "",
+      color: "",
+      salary: 0,
+    });
+  };
+
   const validateForm = () => {
     let isValid = true;
     let tempErrors = {};
