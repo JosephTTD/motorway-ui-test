@@ -83,18 +83,7 @@ body {
   position: relative;
   height: 350px;
   border-radius: 20px;
-}
-
-.image-before {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .image-after {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
+} 
 
 .grid-item picture .image {
   display: block;
